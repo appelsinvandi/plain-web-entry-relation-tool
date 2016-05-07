@@ -76,7 +76,7 @@ class Table {
 
     // Add classes and config
     this.table.canvas.attr({
-      id: name,
+      id: this.name,
       class: 'table',
       x: this.metrics.x,
       y: this.metrics.y,
@@ -190,7 +190,7 @@ class Property {
 
     // Add classes and config
     this.property.canvas.attr({
-      id: name,
+      id: this.name,
       class: 'property',
       x: this.metrics.x,
       y: this.metrics.y,
