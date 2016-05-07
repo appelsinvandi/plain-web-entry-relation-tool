@@ -100,6 +100,8 @@ class Table {
     this.table.canvas.append(this.properties[property.name])
 
 
+    // TODO: Sorting the properties
+    // Should be weighted based on primary key (and maybe foreign key) and then sorted by alpha desc
     // this.properties = Object.keys(this.properties).sort((a, b) => {
     //   if (a.hasClass('primaryKey') && b.hasClass('primaryKey')) {
     //     return 1
