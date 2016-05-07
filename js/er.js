@@ -178,7 +178,17 @@ class Property {
             g.text(10, 10 + 4, "PK")
                 .addClass('label')
 
-            g.click((e) => console.log(g.toggleClass('active')))
+            g.click(() => {
+               g
+                  .parent()
+                  .parent()
+                  .selectAll('.property .button.primaryKey')
+                  .items.forEach(item =>
+                      item.removeClass('active')
+                  )
+
+              g.toggleClass('active')
+            })
 
             return g
           })()
