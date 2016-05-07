@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800');
+@import '../node_modules/nib'
+
+$colors = {
+  blueDark: #2C3E50,
+  blueMedium: #2980B9,
+  blueMediumLight: #3498DB,
+  blueLight: #ECF0F1,
+  red: #E74C3C,
+}
+$canvas = { backgroundColor: #FAFAFA }
+$controls = { backgroundColor: #FFF }
+
+html, body
+  size: 100vw 100vh
+
+body
+  display: flex
+  flex-direction: row
+  align-content: stretch
+
+  margin: 0
+
+#controls
+  flex: 50px 0 1
+  background-color: $controls.backgroundColor
+  box-shadow: 1px 0 2px #CCC
+  z-index: 1
+  margin-right: 1px
+
+#diagram
+  flex: auto 1 1
+  background-color: $canvas.backgroundColor
+
+  text
+    font-family: 'Open Sans', sans-serif
+    font-size: 12px
+    user-select: none
+
+  .button
+    cursor: pointer
+
+    > .background
+      size: 20px
+      fill: $colors.blueMedium
+
+    > .line
+      stroke: white
+      stroke-width: 2px
+
+    > .label
+      font-weight: 600
+      fill: white
+      text-anchor: middle
+
+    &:hover
+      > .background
+        fill: $colors.blueMediumLight
+
+    &:active
+      > .background
+        fill: $colors.blueMedium
+
+  .table
+    > .background
+      fill: $colors.blueLight
+      stroke: $colors.blueMedium
+      stroke-width: 2px
+
+      cursor: move
+
+    > .separator
+      fill: $colors.blueMedium
+
+    > .tableName
+      font-weight: 800
+      fill: $colors.blueDark
+      text-anchor: middle
+      cursor: pointer
+
+      &:hover
+        fill: $colors.blueMedium
+
+      &:active
+        fill: $colors.blueDark
+
+  .property
+    > .background
+      fill: white
+
+    > .label
+      font-weight: 400
+      fill: $colors.blueDark
+      text-anchor: left
+      cursor: pointer
+
+      &:hover
+        fill: $colors.blueMedium
+
+      &:active
+        fill: $colors.blueDark
+
+    > .button.primaryKey
+      opacity: 0.5
+
+      &.active
+        opacity: 1
