@@ -136,6 +136,12 @@ body {
   stroke-width: 2px;
   cursor: move;
 }
+#diagram .table > .background:hover {
+  fill: #fbfcfc;
+}
+#diagram .table > .background:active {
+  fill: #cfd9db;
+}
 #diagram .table > .separator {
   fill: #2980b9;
 }

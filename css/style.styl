@@ -115,6 +115,12 @@ body
 
       cursor: move
 
+      &:hover
+        fill: lighten($colors.blueLight, 5)
+
+      &:active
+        fill: darken($colors.blueLight, 10)
+
     > .separator
       fill: $colors.blueMedium
 
