@@ -22,27 +22,13 @@ class Table {
     this.properties = {}
 
     this.table = {
-      canvas: graphics
-          .attr({
-            id: name,
-            class: 'table',
-            x: this.metrics.x,
-            y: this.metrics.y,
-            width: this.metrics.width,
-            height: this.metrics.height,
-          }),
-
+      canvas: graphics,
       container: graphics
-          .rect(1, 1, this.metrics.width - 2, this.metrics.height - 2)
-          .addClass('background'),
-
+          .rect(1, 1, this.metrics.width - 2, this.metrics.height - 2),
       separator: graphics
-          .rect(0, 38, this.metrics.width, '100%')
-          .addClass('separator'),
-
+          .rect(0, 38, this.metrics.width, '100%'),
       label: graphics
-          .text(this.metrics.width / 2, this.metrics.height / 2 + 4, this.name)
-          .addClass('tableName'),
+          .text(this.metrics.width / 2, this.metrics.height / 2 + 4, this.name),
 
       buttonAdd: graphics.append((() => {
             let g = Snap()
@@ -66,7 +52,6 @@ class Table {
             return g
           })()
       ),
-
       buttonDelete: graphics.append((() => {
             let g = Snap()
             g.attr({
@@ -88,6 +73,19 @@ class Table {
           })()
       ),
     }
+
+    // Add classes and config
+    this.table.canvas.attr({
+      id: name,
+      class: 'table',
+      x: this.metrics.x,
+      y: this.metrics.y,
+      width: this.metrics.width,
+      height: this.metrics.height,
+    })
+    this.table.container.addClass('background')
+    this.table.separator.addClass('separator')
+    this.table.label.addClass('tableName')
   }
 
   addProperty(property) {
@@ -140,22 +138,11 @@ class Property {
     this.name = this.convertPropertyName(name)
 
     this.property = {
-      canvas: graphics
-          .attr({
-            class: 'property',
-            x: this.metrics.x,
-            y: this.metrics.y,
-            width: this.metrics.width,
-            height: this.metrics.height,
-          }),
-
+      canvas: graphics,
       container: graphics
-          .rect(0, 0, '100%', '100%')
-          .addClass('background'),
-
+          .rect(0, 0, '100%', '100%'),
       label: graphics
-          .text(10 + 20 + 10, this.metrics.height / 2 + 4, this.name)
-          .addClass('label'),
+          .text(10 + 20 + 10, this.metrics.height / 2 + 4, this.name),
 
       buttonPrimaryKey: graphics.append((() => {
             let g = Snap(20, 20)
@@ -177,7 +164,6 @@ class Property {
             return g
           })()
       ),
-
       buttonDelete: graphics.append((() => {
             let g = Snap()
             g.attr({
@@ -199,6 +185,18 @@ class Property {
           })()
       ),
     }
+
+    // Add classes and config
+    this.property.canvas.attr({
+      id: name,
+      class: 'property',
+      x: this.metrics.x,
+      y: this.metrics.y,
+      width: this.metrics.width,
+      height: this.metrics.height,
+    })
+    this.property.container.addClass('background')
+    this.property.label.addClass('label')
   }
 
   convertPropertyName(name) {
