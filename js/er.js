@@ -87,6 +87,19 @@ class Table {
       height: this.metrics.height,
     })
     this.table.container.addClass('background')
+    this.table.container
+        .drag((dx, dy) => // On move
+                this.table.canvas.attr({
+                  x: this.metrics.x + dx,
+                  y: this.metrics.y + dy
+                }),
+            () => {
+            }, // On start
+            () => { // On stop
+              this.metrics.x = parseInt(this.table.canvas.attr('x'))
+              this.metrics.y = parseInt(this.table.canvas.attr('y'))
+            }
+        )
     this.table.separator.addClass('separator')
     this.table.label.addClass('tableName')
     this.table.label.click(() => {
@@ -183,13 +196,13 @@ class Property {
                 .addClass('label')
 
             g.click(() => {
-               g
+              g
                   .parent()
                   .parent()
                   .selectAll('.property .button.primaryKey')
                   .items.forEach(item =>
-                      item.removeClass('active')
-                  )
+                  item.removeClass('active')
+              )
 
               g.toggleClass('active')
             })
