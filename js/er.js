@@ -251,7 +251,8 @@ class Property {
 
 function addTable(e = null) {
   if (e === null) {
-    document.querySelector('img#buttonNewTable').className = 'active'
+    document.querySelector('img#buttonNewTable').className = document.querySelector('div#diagramOverlay').className = 'active'
+    document.querySelector('div#diagramOverlay').innerHTML = 'Click anywhere here to place new table'
     s.click(addTable)
   } else {
     let name = window.prompt('Please enter the table name', '')
@@ -261,7 +262,8 @@ function addTable(e = null) {
       s.append(tables[tables.length - 1].table.canvas)
     }
 
-    document.querySelector('img#buttonNewTable').className = ''
+    document.querySelector('img#buttonNewTable').className = document.querySelector('div#diagramOverlay').className = ''
+    document.querySelector('div#diagramOverlay').innerHTML = ''
     s.unclick(addTable)
   }
 }
