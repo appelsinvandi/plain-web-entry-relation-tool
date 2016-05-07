@@ -28,6 +28,25 @@ body
   z-index: 1
   margin-right: 1px
 
+  user-select: none
+
+  img
+    margin: 0 5px 0 5px
+    padding: 5px
+    size: 30px
+
+    user-select: none
+    cursor: pointer
+
+    &:first-child
+      margin-top: 5px
+
+    &:hover
+      background-color: $colors.blueLight
+
+    &:active
+      background-color: darken($colors.blueLight, 10)
+
 #diagram
   flex: auto 1 1
   background-color: $canvas.backgroundColor
