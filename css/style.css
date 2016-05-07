@@ -60,6 +60,9 @@ body {
 #controls img:active {
   background-color: #cfd9db;
 }
+#controls img.active {
+  background-color: #b1c2c6;
+}
 #diagram {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;

@@ -6,13 +6,16 @@ colors = {
   red: '#E74C3C',
 }
 
+var tables = []
+var s = Snap('#diagram')
+
 class Table {
-  constructor(name) {
+  constructor(name, x = 10, y = 10) {
     let graphics = Snap()
 
     this.metrics = {
-      x: 10,
-      y: 10,
+      x,
+      y,
       width: 300,
       height: 40
     }
@@ -246,12 +249,19 @@ class Property {
   }
 }
 
-var tables = []
+function addTable(e = null) {
+  if (e === null) {
+    document.querySelector('img#buttonNewTable').className = 'active'
+    s.click(addTable)
+  } else {
+    let name = window.prompt('Please enter the table name', '')
 
-var s = Snap('#diagram')
+    if (name !== null) {
+      tables.push(new Table(name, e.offsetX, e.offsetY))
+      s.append(tables[tables.length - 1].table.canvas)
+    }
 
-tables.push(new Table("Test table"))
-
-tables.reduce((previous, item) => {
-  s.append(item.table.canvas)
-}, '')
+    document.querySelector('img#buttonNewTable').className = ''
+    s.unclick(addTable)
+  }
+}
