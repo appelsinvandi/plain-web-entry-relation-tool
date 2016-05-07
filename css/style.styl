@@ -50,6 +50,30 @@ body
     &.active
       background-color: darken($colors.blueLight, 20)
 
+#diagramOverlay
+  display: none
+
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 50px
+  padding-top calc(50vh - 21px)
+
+  pointer-events: none
+  opacity: 0.25
+  background-color: $colors.blueDark
+
+  text-transform: uppercase
+  font-family: 'Open Sans', sans-serif
+  font-size: 42px
+  color: white
+  text-align: center
+  user-select: none
+
+  &.active
+    display: block
+
 #diagram
   flex: auto 1 1
   background-color: $canvas.backgroundColor
