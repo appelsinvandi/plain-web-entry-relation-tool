@@ -86,6 +86,20 @@ class Table {
     this.table.container.addClass('background')
     this.table.separator.addClass('separator')
     this.table.label.addClass('tableName')
+    this.table.label.click(() => {
+      let name = window.prompt('Enter new table name', this.name)
+
+      if (name !== null)
+        this.changeTableName(name)
+    })
+  }
+
+  changeTableName(name) {
+    this.name = this.convertTableName(name)
+    this.table.label.node.innerHTML = this.name
+    this.table.canvas.attr({
+      id: this.name,
+    })
   }
 
   addProperty(property) {
@@ -199,6 +213,20 @@ class Property {
     })
     this.property.container.addClass('background')
     this.property.label.addClass('label')
+    this.property.label.click(() => {
+      let name = window.prompt('Enter new property name', this.name)
+
+      if (name !== null)
+        this.changePropertyName(name)
+    })
+  }
+
+  changePropertyName(name) {
+    this.name = this.convertPropertyName(name)
+    this.property.label.node.innerHTML = this.name
+    this.property.canvas.attr({
+      id: this.name,
+    })
   }
 
   convertPropertyName(name) {
