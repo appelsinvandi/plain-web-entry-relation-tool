@@ -72,6 +72,11 @@ class Table {
             g.line(6, 14, 14, 6)
                 .addClass('line')
 
+            g.click(() => {
+              g.parent().remove()
+              removeTable(this.table.canvas.id)
+            })
+
             return g
           })()
       ),
@@ -274,6 +279,10 @@ class Property {
 
     return name
   }
+}
+
+function removeTable(id) {
+  tables = tables.filter((table) => table.table.canvas.id !== id);
 }
 
 function addTable(e = null) {
