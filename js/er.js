@@ -171,6 +171,8 @@ class Property {
               x: 10,
               y: 10
             })
+            if (g.parent().parent().selectAll('.property').items.length <= 0)
+              g.addClass('active')
             g.addClass('button primaryKey')
 
             g.rect()
