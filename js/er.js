@@ -95,6 +95,8 @@ class Table {
       if (name !== null)
         this.changeTableName(name)
     })
+
+    this.addProperty(new Property('id'))
   }
 
   changeTableName(name) {
