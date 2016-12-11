@@ -2,16 +2,25 @@
   "name": "er",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "authors": [
-    "Morten Jelle <Zoulember@gmail.com>"
-  ],
+  "author": "Morten Jelle <Zoulember@gmail.com>",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "*",
+    "babel-preset-es2015": "*",
+    "babelify": "*",
+    "browserify": "*",
+    "cssnano": "*",
+    "gulp": "*",
+    "gulp-postcss": "*",
+    "gulp-rename": "*",
+    "gulp-sass": "*",
+    "vinyl-source-stream": "*"
+  },
   "dependencies": {
-    "nib": "^1.1.0"
+    "bourbon": "^4.2.7",
+    "snapsvg": "^0.4.0"
   }
 }

@@ -1,0 +1,11 @@
+html, body {
+  @include size(100vw 100vh);
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  align-content: stretch;
+
+  margin: 0;
+}
