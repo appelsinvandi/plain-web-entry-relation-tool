@@ -1,4 +1,4 @@
-colors = {
+var colors = {
   backgroundDark: '#2C3E50',
   backgroundMedium: '#2980B9',
   backgroundMediumLight: '#3498DB',
