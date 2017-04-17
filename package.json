@@ -1,26 +1,39 @@
 {
   "name": "er",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
   "author": "Morten Jelle <Zoulember@gmail.com>",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "license": "MIT",
-  "devDependencies": {
-    "autoprefixer": "*",
-    "babel-preset-es2015": "*",
-    "babelify": "*",
-    "browserify": "*",
-    "cssnano": "*",
-    "gulp": "*",
-    "gulp-postcss": "*",
-    "gulp-rename": "*",
-    "gulp-sass": "*",
-    "vinyl-source-stream": "*"
-  },
   "dependencies": {
-    "bourbon": "^4.2.7",
-    "snapsvg": "^0.4.0"
+    "bourbon": "^4.3.4",
+    "bourbon-neat": "^2.0.0",
+    "classnames": "^2.2.5",
+    "express": "^4.15.2",
+    "immutable": "^3.8.1",
+    "morgan": "^1.8.1",
+    "normalize.css": "^6.0.0",
+    "npm-run-all": "^4.0.2",
+    "prop-types": "^15.5.8",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.4",
+    "react-router": "^4.1.1",
+    "react-router-redux": "^5.0.0-alpha.6",
+    "redux": "^3.6.0",
+    "redux-immutable": "^4.0.0",
+    "redux-persist-immutable": "^4.2.0",
+    "redux-thunk": "^2.2.0"
+  },
+  "devDependencies": {
+    "node-sass": "^4.5.2",
+    "react-scripts": "0.9.5"
+  },
+  "scripts": {
+    "build-css": "node-sass src/ -o src/",
+    "watch-css": "npm run build-css && node-sass src/ -o src/ --watch --recursive",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build": "npm run build-css && react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }

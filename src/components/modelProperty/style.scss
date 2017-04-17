@@ -1,0 +1,22 @@
+@import "../../styles/essincials";
+
+.model-property {
+  $height: 36px;
+
+  .property-background {
+    @include size(100% $height);
+
+    fill: none;
+  }
+
+  .property-name {
+    @include size(100% $height);
+
+    fill: black;
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    text-anchor: start;
+    alignment-baseline: central;
+  }
+}

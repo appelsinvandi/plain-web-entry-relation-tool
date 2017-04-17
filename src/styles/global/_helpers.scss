@@ -1,0 +1,139 @@
+/*********************
+  Media Query Classes
+**********************/
+.hide-on-small-only, .hide-on-small-and-down {
+  @media #{$small-and-down} {
+    display: none !important;
+  }
+}
+.hide-on-medium-and-down {
+  @media #{$medium-and-down} {
+    display: none !important;
+  }
+}
+.hide-on-medium-and-up {
+  @media #{$medium-and-up} {
+    display: none !important;
+  }
+}
+.hide-on-medium-only {
+  @media only screen and (min-width: $small-screen) and (max-width: $medium-screen) {
+    display: none !important;
+  }
+}
+.hide-on-large-only {
+  @media #{$large-and-up} {
+    display: none !important;
+  }
+}
+.show-on-large {
+  @media #{$large-and-up} {
+    display: initial !important;
+  }
+}
+.show-on-medium {
+  @media only screen and (min-width: $small-screen) and (max-width: $medium-screen) {
+    display: initial !important;
+  }
+}
+.show-on-small {
+  @media #{$small-and-down} {
+    display: initial !important;
+  }
+}
+.show-on-medium-and-up {
+  @media #{$medium-and-up} {
+    display: initial !important;
+  }
+}
+.show-on-medium-and-down {
+  @media #{$medium-and-down} {
+    display: initial !important;
+  }
+}
+
+// Center text on mobile
+.center-on-small-only {
+  @media #{$small-and-down} {
+    text-align: center;
+  }
+}
+
+
+/*********************
+    Global helpers
+**********************/
+
+.hide {
+  display: none !important;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+// Text Align
+.left-align {
+  text-align: left;
+}
+.right-align {
+  text-align: right
+}
+.center, .center-align {
+  text-align: center;
+}
+
+.left {
+  float: left !important;
+}
+.right {
+  float: right !important;
+}
+.titanic {
+  float: none !important;
+}
+
+// No Text Select
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.truncate {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+// Positioning
+.valign-wrapper {
+  display: flex;
+  .row { flex: 1; }
+
+  .valign {
+    display: block;
+  }
+}
+
+.clearfix {
+  clear: both;
+}
