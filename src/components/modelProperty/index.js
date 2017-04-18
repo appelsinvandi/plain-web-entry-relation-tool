@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { modelSizes, colors, dataTypeIconSizes } from '../../variables'
+import { DtIconString } from '../../icons/data-types'
 
 import './style.css'
 
@@ -43,6 +44,12 @@ export class ModelProperty extends Component {
         fontFamily="'Roboto', sans-serif"
         className="model-property"
       >
+        <DtIconString
+          x={dataTypeIconSizes.padding}
+          y={dataTypeIconSizes.padding}
+          width={dataTypeIconSizes.width}
+          height={dataTypeIconSizes.height}
+        />
         <text
           x={iconNeededSpace.horizontal + iconGutter}
           y={modelSizes.propertyHeight / 2}
