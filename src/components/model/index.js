@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import cx from 'classnames'
 import Property from '../modelProperty/index'
+import { modelSizes, colors } from '../../variables'
 
 import './style.css'
 
@@ -26,7 +28,12 @@ export class Model extends Component {
     properties: PropTypes.arrayOf(PropTypes.shape({
       name: PropTypes.string.isRequired
     })),
+    selected: PropTypes.bool,
     onSizeChange: PropTypes.func
+  }
+
+  static defaultProps = {
+    selected: false
   }
 
   getTitleTextWidth = (titleText) => this.getTextWidth(titleText, '500 14px Arial')
@@ -43,7 +50,8 @@ export class Model extends Component {
   render() {
     const {
       name,
-      properties
+      properties,
+      selected
     } = this.props
 
     const widestTextWidth = [
@@ -51,15 +59,33 @@ export class Model extends Component {
       ...properties.map(property => this.getPropertyTextWidth(property.name))
     ].sort((a, b) => a < b)[0]
 
-    console.log(properties.map(property => this.getPropertyTextWidth(property.name)))
-
     const modelWidth = iconNeededSpace.horizontal + iconGutter + widestTextWidth + iconGutter + iconNeededSpace.horizontal
-    const modelHeight = 24 + (36 * properties.length)
+    const modelHeight = modelSizes.headerHeight + (modelSizes.propertyHeight * properties.length)
     return (
-      <svg width={modelWidth} height={modelHeight} viewBox={`0 0 ${modelWidth} ${modelHeight}`} className="model">
-        <g className="model-header">
-          <rect x="0" y="0" className="header-background" />
-          <text x={modelWidth / 2} y="12" className="header-title">{name}</text>
+      <svg
+        width={modelWidth}
+        height={modelHeight}
+        viewBox={`0 0 ${modelWidth} ${modelHeight}`}
+        className={cx('model', { active: selected })}
+        fontFamily="'Roboto', sans-serif"
+      >
+        <g>
+          <rect
+            x="0"
+            y="0"
+            width={modelWidth}
+            height={modelSizes.headerHeight}
+            fill={selected ? colors.primaryColor : colors.primaryColorDark}
+          />
+          <text
+            x={modelWidth / 2}
+            y={modelSizes.headerHeight / 2}
+            fontSize="14"
+            textAnchor="middle"
+            fill="white"
+            fontWeight="500"
+            alignmentBaseline="central"
+          >{name}</text>
         </g>
         <g className="model-properties">
           {
@@ -69,7 +95,7 @@ export class Model extends Component {
                 name={property.name}
                 modelWidth={modelWidth}
                 modelHeight={modelHeight}
-                verticalOffset={24 + 36 * index}
+                verticalOffset={modelSizes.headerHeight + modelSizes.propertyHeight * index}
               />
             ))
           }

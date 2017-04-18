@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { modelSizes, colors, dataTypeIconSizes } from '../../variables'
 
 import './style.css'
 
@@ -34,9 +35,31 @@ export class ModelProperty extends Component {
     } = this.props
 
     return (
-      <svg x="0" y={verticalOffset} width={modelWidth} viewBox={`0 0 ${modelWidth} ${modelHeight}`} className="model-property">
-        <rect x="0" y="0" className="property-background" />
-        <text x={iconNeededSpace.horizontal + iconGutter} y="18" className="property-name">{name}</text>
+      <svg
+        x="0"
+        y={verticalOffset}
+        width={modelWidth}
+        viewBox={`0 0 ${modelWidth} ${modelHeight}`}
+        fontFamily="'Roboto', sans-serif"
+        className="model-property"
+      >
+        <text
+          x={iconNeededSpace.horizontal + iconGutter}
+          y={modelSizes.propertyHeight / 2}
+          textAnchor="start"
+          fill="black"
+          fontSize="12"
+          fontWeight="400"
+          alignmentBaseline="central"
+        >{name}</text>
+        <line
+          x1="0"
+          y1={modelSizes.propertyHeight}
+          x2={modelWidth}
+          y2={modelSizes.propertyHeight}
+          strokeWidth="0.25"
+          stroke={colors.dividerColor}
+        />
       </svg>
     )
   }
